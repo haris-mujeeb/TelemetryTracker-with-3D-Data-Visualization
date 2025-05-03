@@ -14,7 +14,7 @@ def list_csv_files(directory):
     return csv_files
 
 # Example usage
-directory_path = 'C:\\Users\\eLab.DESKTOP-0F5BO84\\Desktop\\surya\\TRAX\\test_data\\walks\\outside_elab\\new'
+directory_path = './'
 csv_files = list_csv_files(directory_path)
 
 for file in csv_files:
