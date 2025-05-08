@@ -9,12 +9,13 @@ class SensorData:
         self.acc_raw_data = None
         self.gyro_raw_data = None
         self.mag_raw_data = None
-        self.gps_raw_data = None
+        self.force_raw_data = None
         self.timestamps_in_ms = None
         self.timestamps_in_seconds = None
         self.gps_timestamps_in_ms = None
         self.gps_timestamps_in_seconds = None
         self.time_deltas = None
+        self.pressure_raw_data = None
         self.min_length = None
 
         self.load_data()
@@ -33,8 +34,9 @@ class SensorData:
         self.acc_raw_data = self.raw_data[['aX', 'aY', 'aZ']].to_numpy()  # m/s²
         self.gyro_raw_data = self.raw_data[['gX', 'gY', 'gZ']].to_numpy()  # rad/s
         self.mag_raw_data = self.raw_data[['mX', 'mY', 'mZ']].to_numpy()  # uT
-        self.gps_raw_data = self.raw_data[['lat', 'long', 'alt', 'NedNorthVel', 'NedEastVel']].to_numpy() / 1e7
-        
+        self.gps_raw_data = self.raw_data[['lat', 'long', 'alt']].to_numpy() / 1e7
+        self.force_raw_data = self.raw_data[['force1']].to_numpy()
+
         self.mag_raw_data /= 1000  # Convert to mT
         self.timestamps_in_ms = self.raw_data['IMU-ticks'].to_numpy()
         self.timestamps_in_seconds = self.timestamps_in_ms / 1000.0
