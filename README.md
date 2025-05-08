@@ -3,3 +3,9 @@ TelemetryTracker is a technical project designed to collect and visualize teleme
 - ZOE-M8Q GPS Module
 - Tekscan FlexiForce A201 pressure sensor
 - 3D Visualization of the collected telemetry data, allowing for in-depth analysis of spatial and pressure dynamics. 
+
+## Demo Video
+
+
+https://github.com/user-attachments/assets/00071b26-7bab-4d6b-8f5f-7287daa0825b
+
