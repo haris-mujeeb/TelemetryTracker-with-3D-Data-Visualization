@@ -6,7 +6,7 @@
 #include <SD.h>
 #include <Adafruit_MMC56x3.h>
 
-//#define DEBUG_ON
+// #define DEBUG_ON
 
 struct sensor_data {
   float accel_X;
@@ -67,7 +67,6 @@ bool measuring_state = false;
 
 #define SCK_CARD A5
 
-
 /* Assign a unique ID to this sensor at the same time */
 Adafruit_MMC5603 mmc = Adafruit_MMC5603(12345);
 
@@ -111,7 +110,7 @@ void save_data_tofile() {
       sensor.mag_EY,
       sensor.mag_EZ);
 
-    //myFile.println(message);
+    // myFile.println(message);
   }
   // if the file didn't open, print an error:
   else {
@@ -356,6 +355,12 @@ void displaysensor_data() {
   Serial.print(sensor.time_pressure);
   Serial.print(",force:");
   Serial.print(sensor.force);
+  Serial.print(",mEX:");
+  Serial.print(sensor.mag_EX);
+  Serial.print(",mEY:");
+  Serial.print(sensor.mag_EY);
+  Serial.print(",mEZ:");
+  Serial.print(sensor.mag_EZ);
   Serial.print("<<");
   Serial.println();
 }
@@ -403,7 +408,7 @@ void loop() {
         "NedNorthVel,NedEastVel,NedDownVel,"
         "VerticalAccEst,HorizontalAccEst,SpeedAccEst,HeadingAccEst,"
         "headVeh,magDec,magAcc,"
-        "pressure-ticks,force1,magEx,magEY,magEZ"));
+        "pressure-ticks,force1,mEX,mEY,mEZ"));
       measuring_state = true;
     } else {
       digitalWrite(LED_RED, LOW);
