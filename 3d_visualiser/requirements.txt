@@ -1,0 +1,7 @@
+numpy
+scipy
+pandas
+matplotlib
+plotly
+pymap3d
+pyproj
